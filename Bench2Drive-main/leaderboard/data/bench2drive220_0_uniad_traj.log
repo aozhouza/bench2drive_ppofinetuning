@@ -1,0 +1,667 @@
+../carla/CarlaUE4.sh -RenderOffScreen -nosound -carla-rpc-port=30003 -graphicsadapter=0 None
+4.26.2-0+++UE4+Release-4.26 522 0
+Disabling core dumps.
+load_world success , attempts=0
+traffic_manager init success, try_time=0
+
+[1m========= Preparing RouteScenario_2143 (repetition 0) =========[0m
+[1m> Loading the world[0m
+[1m> Setting up the agent[0m
+load checkpoint from path: Bench2DriveZoo/ckpts/uniad_base_b2d.pth
+[1m> Running the route[0m
+=== [Agent] -- Wallclock = 2025-12-05 21:16:06.150 -- System time = 0.000 -- Game time = 0.050 -- Ratio = 0.000x
+
+[91mStopping the route, the agent has crashed:
+
+Traceback (most recent call last):
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 188, in _tick_scenario
+    ego_action = self._agent_wrapper()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/agent_wrapper.py", line 147, in __call__
+    return self._agent()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/autonomous_agent.py", line 119, in __call__
+    control = self.run_step(input_data, timestamp)
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/team_code/uniad_b2d_agent.py", line 376, in run_step
+    out_truck =  output_data_batch[0]['planning']['result_planning']['sdc_traj'][0].cpu().numpy()
+RuntimeError: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "leaderboard/leaderboard/leaderboard_evaluator.py", line 412, in _load_and_run_scenario
+    self.manager.run_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 161, in run_scenario
+    self._tick_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 196, in _tick_scenario
+    raise AgentError(e)
+leaderboard.autoagents.agent_wrapper.AgentError: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.
+[0m
+[1m> Stopping the route[0m
+
+[1m========= Results of RouteScenario_2143 (repetition 0) ------ [91mFAILURE[0m [1m=========[0m
+
+╒═══════════════════════╤═════════════════════╕
+│ Start Time            │ 2025-12-05 21:16:05 │
+├───────────────────────┼─────────────────────┤
+│ End Time              │ 2025-12-05 21:16:09 │
+├───────────────────────┼─────────────────────┤
+│ System Time           │ 4.0s                │
+├───────────────────────┼─────────────────────┤
+│ Game Time             │ 0.05s               │
+├───────────────────────┼─────────────────────┤
+│ Ratio (Game / System) │ 0.012               │
+╘═══════════════════════╧═════════════════════╛
+
+╒═══════════════════════╤═════════╤═════════╕
+│ Criterion             │ Result  │ Value   │
+├───────────────────────┼─────────┼─────────┤
+│ RouteCompletionTest   │ [91mFAILURE[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ OutsideRouteLanesTest │ [92mSUCCESS[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ CollisionTest         │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningRedLightTest   │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningStopTest       │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ MinSpeedTest          │ [92mSUCCESS[0m │ 100 %   │
+├───────────────────────┼─────────┼─────────┤
+│ InRouteTest           │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ AgentBlockedTest      │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ Timeout               │ [92mSUCCESS[0m │         │
+╘═══════════════════════╧═════════╧═════════╛
+
+[1m> Registering the route statistics[0m
+False
+
+[1m========= Preparing RouteScenario_2144 (repetition 0) =========[0m
+[1m> Loading the world[0m
+[1m> Setting up the agent[0m
+load checkpoint from path: Bench2DriveZoo/ckpts/uniad_base_b2d.pth
+[1m> Running the route[0m
+=== [Agent] -- Wallclock = 2025-12-05 21:17:10.716 -- System time = 0.000 -- Game time = 0.050 -- Ratio = 0.000x
+
+[91mStopping the route, the agent has crashed:
+
+Traceback (most recent call last):
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 188, in _tick_scenario
+    ego_action = self._agent_wrapper()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/agent_wrapper.py", line 147, in __call__
+    return self._agent()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/autonomous_agent.py", line 119, in __call__
+    control = self.run_step(input_data, timestamp)
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/team_code/uniad_b2d_agent.py", line 376, in run_step
+    out_truck =  output_data_batch[0]['planning']['result_planning']['sdc_traj'][0].cpu().numpy()
+RuntimeError: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "leaderboard/leaderboard/leaderboard_evaluator.py", line 412, in _load_and_run_scenario
+    self.manager.run_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 161, in run_scenario
+    self._tick_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 196, in _tick_scenario
+    raise AgentError(e)
+leaderboard.autoagents.agent_wrapper.AgentError: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.
+[0m
+[1m> Stopping the route[0m
+
+[1m========= Results of RouteScenario_2144 (repetition 0) ------ [91mFAILURE[0m [1m=========[0m
+
+╒═══════════════════════╤═════════════════════╕
+│ Start Time            │ 2025-12-05 21:17:10 │
+├───────────────────────┼─────────────────────┤
+│ End Time              │ 2025-12-05 21:17:13 │
+├───────────────────────┼─────────────────────┤
+│ System Time           │ 3.0s                │
+├───────────────────────┼─────────────────────┤
+│ Game Time             │ 0.05s               │
+├───────────────────────┼─────────────────────┤
+│ Ratio (Game / System) │ 0.017               │
+╘═══════════════════════╧═════════════════════╛
+
+╒═══════════════════════╤═════════╤═════════╕
+│ Criterion             │ Result  │ Value   │
+├───────────────────────┼─────────┼─────────┤
+│ RouteCompletionTest   │ [91mFAILURE[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ OutsideRouteLanesTest │ [92mSUCCESS[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ CollisionTest         │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningRedLightTest   │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningStopTest       │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ MinSpeedTest          │ [92mSUCCESS[0m │ 100 %   │
+├───────────────────────┼─────────┼─────────┤
+│ InRouteTest           │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ AgentBlockedTest      │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ Timeout               │ [92mSUCCESS[0m │         │
+╘═══════════════════════╧═════════╧═════════╛
+
+[1m> Registering the route statistics[0m
+False
+
+[1m========= Preparing RouteScenario_2164 (repetition 0) =========[0m
+[1m> Loading the world[0m
+[1m> Setting up the agent[0m
+load checkpoint from path: Bench2DriveZoo/ckpts/uniad_base_b2d.pth
+[1m> Running the route[0m
+=== [Agent] -- Wallclock = 2025-12-05 21:18:10.964 -- System time = 0.000 -- Game time = 0.050 -- Ratio = 0.000x
+
+[91mStopping the route, the agent has crashed:
+
+Traceback (most recent call last):
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 188, in _tick_scenario
+    ego_action = self._agent_wrapper()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/agent_wrapper.py", line 147, in __call__
+    return self._agent()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/autonomous_agent.py", line 119, in __call__
+    control = self.run_step(input_data, timestamp)
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/team_code/uniad_b2d_agent.py", line 376, in run_step
+    out_truck =  output_data_batch[0]['planning']['result_planning']['sdc_traj'][0].cpu().numpy()
+RuntimeError: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "leaderboard/leaderboard/leaderboard_evaluator.py", line 412, in _load_and_run_scenario
+    self.manager.run_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 161, in run_scenario
+    self._tick_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 196, in _tick_scenario
+    raise AgentError(e)
+leaderboard.autoagents.agent_wrapper.AgentError: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.
+[0m
+[1m> Stopping the route[0m
+
+[1m========= Results of RouteScenario_2164 (repetition 0) ------ [91mFAILURE[0m [1m=========[0m
+
+╒═══════════════════════╤═════════════════════╕
+│ Start Time            │ 2025-12-05 21:18:10 │
+├───────────────────────┼─────────────────────┤
+│ End Time              │ 2025-12-05 21:18:13 │
+├───────────────────────┼─────────────────────┤
+│ System Time           │ 3.0s                │
+├───────────────────────┼─────────────────────┤
+│ Game Time             │ 0.05s               │
+├───────────────────────┼─────────────────────┤
+│ Ratio (Game / System) │ 0.017               │
+╘═══════════════════════╧═════════════════════╛
+
+╒═══════════════════════╤═════════╤═════════╕
+│ Criterion             │ Result  │ Value   │
+├───────────────────────┼─────────┼─────────┤
+│ RouteCompletionTest   │ [91mFAILURE[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ OutsideRouteLanesTest │ [92mSUCCESS[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ CollisionTest         │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningRedLightTest   │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningStopTest       │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ MinSpeedTest          │ [92mSUCCESS[0m │ 100 %   │
+├───────────────────────┼─────────┼─────────┤
+│ InRouteTest           │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ AgentBlockedTest      │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ Timeout               │ [92mSUCCESS[0m │         │
+╘═══════════════════════╧═════════╧═════════╛
+
+[1m> Registering the route statistics[0m
+False
+
+[1m========= Preparing RouteScenario_2201 (repetition 0) =========[0m
+[1m> Loading the world[0m
+[1m> Setting up the agent[0m
+load checkpoint from path: Bench2DriveZoo/ckpts/uniad_base_b2d.pth
+[1m> Running the route[0m
+=== [Agent] -- Wallclock = 2025-12-05 21:19:12.129 -- System time = 0.000 -- Game time = 0.050 -- Ratio = 0.000x
+
+[91mStopping the route, the agent has crashed:
+
+Traceback (most recent call last):
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 188, in _tick_scenario
+    ego_action = self._agent_wrapper()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/agent_wrapper.py", line 147, in __call__
+    return self._agent()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/autonomous_agent.py", line 119, in __call__
+    control = self.run_step(input_data, timestamp)
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/team_code/uniad_b2d_agent.py", line 376, in run_step
+    out_truck =  output_data_batch[0]['planning']['result_planning']['sdc_traj'][0].cpu().numpy()
+RuntimeError: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "leaderboard/leaderboard/leaderboard_evaluator.py", line 412, in _load_and_run_scenario
+    self.manager.run_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 161, in run_scenario
+    self._tick_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 196, in _tick_scenario
+    raise AgentError(e)
+leaderboard.autoagents.agent_wrapper.AgentError: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.
+[0m
+[1m> Stopping the route[0m
+
+[1m========= Results of RouteScenario_2201 (repetition 0) ------ [91mFAILURE[0m [1m=========[0m
+
+╒═══════════════════════╤═════════════════════╕
+│ Start Time            │ 2025-12-05 21:19:11 │
+├───────────────────────┼─────────────────────┤
+│ End Time              │ 2025-12-05 21:19:14 │
+├───────────────────────┼─────────────────────┤
+│ System Time           │ 3.0s                │
+├───────────────────────┼─────────────────────┤
+│ Game Time             │ 0.05s               │
+├───────────────────────┼─────────────────────┤
+│ Ratio (Game / System) │ 0.017               │
+╘═══════════════════════╧═════════════════════╛
+
+╒═══════════════════════╤═════════╤═════════╕
+│ Criterion             │ Result  │ Value   │
+├───────────────────────┼─────────┼─────────┤
+│ RouteCompletionTest   │ [91mFAILURE[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ OutsideRouteLanesTest │ [92mSUCCESS[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ CollisionTest         │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningRedLightTest   │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningStopTest       │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ MinSpeedTest          │ [92mSUCCESS[0m │ 100 %   │
+├───────────────────────┼─────────┼─────────┤
+│ InRouteTest           │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ AgentBlockedTest      │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ ScenarioTimeoutTest   │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ Timeout               │ [92mSUCCESS[0m │         │
+╘═══════════════════════╧═════════╧═════════╛
+
+[1m> Registering the route statistics[0m
+False
+
+[1m========= Preparing RouteScenario_2204 (repetition 0) =========[0m
+[1m> Loading the world[0m
+[1m> Setting up the agent[0m
+load checkpoint from path: Bench2DriveZoo/ckpts/uniad_base_b2d.pth
+[1m> Running the route[0m
+=== [Agent] -- Wallclock = 2025-12-05 21:20:12.912 -- System time = 0.000 -- Game time = 0.050 -- Ratio = 0.000x
+
+[91mStopping the route, the agent has crashed:
+
+Traceback (most recent call last):
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 188, in _tick_scenario
+    ego_action = self._agent_wrapper()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/agent_wrapper.py", line 147, in __call__
+    return self._agent()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/autonomous_agent.py", line 119, in __call__
+    control = self.run_step(input_data, timestamp)
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/team_code/uniad_b2d_agent.py", line 376, in run_step
+    out_truck =  output_data_batch[0]['planning']['result_planning']['sdc_traj'][0].cpu().numpy()
+RuntimeError: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "leaderboard/leaderboard/leaderboard_evaluator.py", line 412, in _load_and_run_scenario
+    self.manager.run_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 161, in run_scenario
+    self._tick_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 196, in _tick_scenario
+    raise AgentError(e)
+leaderboard.autoagents.agent_wrapper.AgentError: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.
+[0m
+[1m> Stopping the route[0m
+
+[1m========= Results of RouteScenario_2204 (repetition 0) ------ [91mFAILURE[0m [1m=========[0m
+
+╒═══════════════════════╤═════════════════════╕
+│ Start Time            │ 2025-12-05 21:20:12 │
+├───────────────────────┼─────────────────────┤
+│ End Time              │ 2025-12-05 21:20:15 │
+├───────────────────────┼─────────────────────┤
+│ System Time           │ 3.0s                │
+├───────────────────────┼─────────────────────┤
+│ Game Time             │ 0.05s               │
+├───────────────────────┼─────────────────────┤
+│ Ratio (Game / System) │ 0.017               │
+╘═══════════════════════╧═════════════════════╛
+
+╒═══════════════════════╤═════════╤═════════╕
+│ Criterion             │ Result  │ Value   │
+├───────────────────────┼─────────┼─────────┤
+│ RouteCompletionTest   │ [91mFAILURE[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ OutsideRouteLanesTest │ [92mSUCCESS[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ CollisionTest         │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningRedLightTest   │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningStopTest       │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ MinSpeedTest          │ [92mSUCCESS[0m │ 100 %   │
+├───────────────────────┼─────────┼─────────┤
+│ InRouteTest           │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ AgentBlockedTest      │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ ScenarioTimeoutTest   │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ Timeout               │ [92mSUCCESS[0m │         │
+╘═══════════════════════╧═════════╧═════════╛
+
+[1m> Registering the route statistics[0m
+False
+
+[1m========= Preparing RouteScenario_2215 (repetition 0) =========[0m
+[1m> Loading the world[0m
+[1m> Setting up the agent[0m
+load checkpoint from path: Bench2DriveZoo/ckpts/uniad_base_b2d.pth
+[1m> Running the route[0m
+=== [Agent] -- Wallclock = 2025-12-05 21:21:18.918 -- System time = 0.000 -- Game time = 0.050 -- Ratio = 0.000x
+
+[91mStopping the route, the agent has crashed:
+
+Traceback (most recent call last):
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 188, in _tick_scenario
+    ego_action = self._agent_wrapper()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/agent_wrapper.py", line 147, in __call__
+    return self._agent()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/autonomous_agent.py", line 119, in __call__
+    control = self.run_step(input_data, timestamp)
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/team_code/uniad_b2d_agent.py", line 376, in run_step
+    out_truck =  output_data_batch[0]['planning']['result_planning']['sdc_traj'][0].cpu().numpy()
+RuntimeError: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "leaderboard/leaderboard/leaderboard_evaluator.py", line 412, in _load_and_run_scenario
+    self.manager.run_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 161, in run_scenario
+    self._tick_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 196, in _tick_scenario
+    raise AgentError(e)
+leaderboard.autoagents.agent_wrapper.AgentError: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.
+[0m
+[1m> Stopping the route[0m
+
+[1m========= Results of RouteScenario_2215 (repetition 0) ------ [91mFAILURE[0m [1m=========[0m
+
+╒═══════════════════════╤═════════════════════╕
+│ Start Time            │ 2025-12-05 21:21:18 │
+├───────────────────────┼─────────────────────┤
+│ End Time              │ 2025-12-05 21:21:21 │
+├───────────────────────┼─────────────────────┤
+│ System Time           │ 3.0s                │
+├───────────────────────┼─────────────────────┤
+│ Game Time             │ 0.05s               │
+├───────────────────────┼─────────────────────┤
+│ Ratio (Game / System) │ 0.017               │
+╘═══════════════════════╧═════════════════════╛
+
+╒═══════════════════════╤═════════╤═════════╕
+│ Criterion             │ Result  │ Value   │
+├───────────────────────┼─────────┼─────────┤
+│ RouteCompletionTest   │ [91mFAILURE[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ OutsideRouteLanesTest │ [92mSUCCESS[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ CollisionTest         │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningRedLightTest   │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningStopTest       │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ MinSpeedTest          │ [92mSUCCESS[0m │ 100 %   │
+├───────────────────────┼─────────┼─────────┤
+│ InRouteTest           │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ AgentBlockedTest      │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ ScenarioTimeoutTest   │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ Timeout               │ [92mSUCCESS[0m │         │
+╘═══════════════════════╧═════════╧═════════╛
+
+[1m> Registering the route statistics[0m
+False
+
+[1m========= Preparing RouteScenario_2273 (repetition 0) =========[0m
+[1m> Loading the world[0m
+[1m> Setting up the agent[0m
+load checkpoint from path: Bench2DriveZoo/ckpts/uniad_base_b2d.pth
+[1m> Running the route[0m
+=== [Agent] -- Wallclock = 2025-12-05 21:22:18.964 -- System time = 0.000 -- Game time = 0.050 -- Ratio = 0.000x
+
+[91mStopping the route, the agent has crashed:
+
+Traceback (most recent call last):
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 188, in _tick_scenario
+    ego_action = self._agent_wrapper()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/agent_wrapper.py", line 147, in __call__
+    return self._agent()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/autonomous_agent.py", line 119, in __call__
+    control = self.run_step(input_data, timestamp)
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/team_code/uniad_b2d_agent.py", line 376, in run_step
+    out_truck =  output_data_batch[0]['planning']['result_planning']['sdc_traj'][0].cpu().numpy()
+RuntimeError: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "leaderboard/leaderboard/leaderboard_evaluator.py", line 412, in _load_and_run_scenario
+    self.manager.run_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 161, in run_scenario
+    self._tick_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 196, in _tick_scenario
+    raise AgentError(e)
+leaderboard.autoagents.agent_wrapper.AgentError: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.
+[0m
+[1m> Stopping the route[0m
+
+[1m========= Results of RouteScenario_2273 (repetition 0) ------ [91mFAILURE[0m [1m=========[0m
+
+╒═══════════════════════╤═════════════════════╕
+│ Start Time            │ 2025-12-05 21:22:18 │
+├───────────────────────┼─────────────────────┤
+│ End Time              │ 2025-12-05 21:22:21 │
+├───────────────────────┼─────────────────────┤
+│ System Time           │ 3.0s                │
+├───────────────────────┼─────────────────────┤
+│ Game Time             │ 0.05s               │
+├───────────────────────┼─────────────────────┤
+│ Ratio (Game / System) │ 0.017               │
+╘═══════════════════════╧═════════════════════╛
+
+╒═══════════════════════╤═════════╤═════════╕
+│ Criterion             │ Result  │ Value   │
+├───────────────────────┼─────────┼─────────┤
+│ RouteCompletionTest   │ [91mFAILURE[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ OutsideRouteLanesTest │ [92mSUCCESS[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ CollisionTest         │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningRedLightTest   │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningStopTest       │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ MinSpeedTest          │ [92mSUCCESS[0m │ 100 %   │
+├───────────────────────┼─────────┼─────────┤
+│ InRouteTest           │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ AgentBlockedTest      │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ ScenarioTimeoutTest   │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ Timeout               │ [92mSUCCESS[0m │         │
+╘═══════════════════════╧═════════╧═════════╛
+
+[1m> Registering the route statistics[0m
+False
+
+[1m========= Preparing RouteScenario_2283 (repetition 0) =========[0m
+[1m> Loading the world[0m
+[1m> Setting up the agent[0m
+load checkpoint from path: Bench2DriveZoo/ckpts/uniad_base_b2d.pth
+[1m> Running the route[0m
+=== [Agent] -- Wallclock = 2025-12-05 21:23:21.338 -- System time = 0.000 -- Game time = 0.050 -- Ratio = 0.000x
+
+[91mStopping the route, the agent has crashed:
+
+Traceback (most recent call last):
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 188, in _tick_scenario
+    ego_action = self._agent_wrapper()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/agent_wrapper.py", line 147, in __call__
+    return self._agent()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/autonomous_agent.py", line 119, in __call__
+    control = self.run_step(input_data, timestamp)
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/team_code/uniad_b2d_agent.py", line 376, in run_step
+    out_truck =  output_data_batch[0]['planning']['result_planning']['sdc_traj'][0].cpu().numpy()
+RuntimeError: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "leaderboard/leaderboard/leaderboard_evaluator.py", line 412, in _load_and_run_scenario
+    self.manager.run_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 161, in run_scenario
+    self._tick_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 196, in _tick_scenario
+    raise AgentError(e)
+leaderboard.autoagents.agent_wrapper.AgentError: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.
+[0m
+[1m> Stopping the route[0m
+
+[1m========= Results of RouteScenario_2283 (repetition 0) ------ [91mFAILURE[0m [1m=========[0m
+
+╒═══════════════════════╤═════════════════════╕
+│ Start Time            │ 2025-12-05 21:23:21 │
+├───────────────────────┼─────────────────────┤
+│ End Time              │ 2025-12-05 21:23:24 │
+├───────────────────────┼─────────────────────┤
+│ System Time           │ 3.0s                │
+├───────────────────────┼─────────────────────┤
+│ Game Time             │ 0.05s               │
+├───────────────────────┼─────────────────────┤
+│ Ratio (Game / System) │ 0.017               │
+╘═══════════════════════╧═════════════════════╛
+
+╒═══════════════════════╤═════════╤═════════╕
+│ Criterion             │ Result  │ Value   │
+├───────────────────────┼─────────┼─────────┤
+│ RouteCompletionTest   │ [91mFAILURE[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ OutsideRouteLanesTest │ [92mSUCCESS[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ CollisionTest         │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningRedLightTest   │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningStopTest       │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ MinSpeedTest          │ [92mSUCCESS[0m │ 100 %   │
+├───────────────────────┼─────────┼─────────┤
+│ InRouteTest           │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ AgentBlockedTest      │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ ScenarioTimeoutTest   │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ Timeout               │ [92mSUCCESS[0m │         │
+╘═══════════════════════╧═════════╧═════════╛
+
+[1m> Registering the route statistics[0m
+False
+
+[1m========= Preparing RouteScenario_2286 (repetition 0) =========[0m
+[1m> Loading the world[0m
+[1m> Setting up the agent[0m
+load checkpoint from path: Bench2DriveZoo/ckpts/uniad_base_b2d.pth
+[1m> Running the route[0m
+=== [Agent] -- Wallclock = 2025-12-05 21:24:23.585 -- System time = 0.000 -- Game time = 0.050 -- Ratio = 0.000x
+
+[91mStopping the route, the agent has crashed:
+
+Traceback (most recent call last):
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 188, in _tick_scenario
+    ego_action = self._agent_wrapper()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/agent_wrapper.py", line 147, in __call__
+    return self._agent()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/autonomous_agent.py", line 119, in __call__
+    control = self.run_step(input_data, timestamp)
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/team_code/uniad_b2d_agent.py", line 376, in run_step
+    out_truck =  output_data_batch[0]['planning']['result_planning']['sdc_traj'][0].cpu().numpy()
+RuntimeError: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "leaderboard/leaderboard/leaderboard_evaluator.py", line 412, in _load_and_run_scenario
+    self.manager.run_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 161, in run_scenario
+    self._tick_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 196, in _tick_scenario
+    raise AgentError(e)
+leaderboard.autoagents.agent_wrapper.AgentError: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.
+[0m
+[1m> Stopping the route[0m
+
+[1m========= Results of RouteScenario_2286 (repetition 0) ------ [91mFAILURE[0m [1m=========[0m
+
+╒═══════════════════════╤═════════════════════╕
+│ Start Time            │ 2025-12-05 21:24:23 │
+├───────────────────────┼─────────────────────┤
+│ End Time              │ 2025-12-05 21:24:26 │
+├───────────────────────┼─────────────────────┤
+│ System Time           │ 3.0s                │
+├───────────────────────┼─────────────────────┤
+│ Game Time             │ 0.05s               │
+├───────────────────────┼─────────────────────┤
+│ Ratio (Game / System) │ 0.017               │
+╘═══════════════════════╧═════════════════════╛
+
+╒═══════════════════════╤═════════╤═════════╕
+│ Criterion             │ Result  │ Value   │
+├───────────────────────┼─────────┼─────────┤
+│ RouteCompletionTest   │ [91mFAILURE[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ OutsideRouteLanesTest │ [92mSUCCESS[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ CollisionTest         │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningRedLightTest   │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningStopTest       │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ MinSpeedTest          │ [92mSUCCESS[0m │ 100 %   │
+├───────────────────────┼─────────┼─────────┤
+│ InRouteTest           │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ AgentBlockedTest      │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ Timeout               │ [92mSUCCESS[0m │         │
+╘═══════════════════════╧═════════╧═════════╛
+
+[1m> Registering the route statistics[0m
+False
+
+[1m========= Preparing RouteScenario_2373 (repetition 0) =========[0m
+[1m> Loading the world[0m
+[1m> Setting up the agent[0m

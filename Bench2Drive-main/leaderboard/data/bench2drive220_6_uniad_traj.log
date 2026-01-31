@@ -1,0 +1,5 @@
+../carla/CarlaUE4.sh -RenderOffScreen -nosound -carla-rpc-port=30900 -graphicsadapter=0 None
+4.26.2-0+++UE4+Release-4.26 522 0
+Disabling core dumps.
+load_world success , attempts=0
+traffic_manager init success, try_time=0

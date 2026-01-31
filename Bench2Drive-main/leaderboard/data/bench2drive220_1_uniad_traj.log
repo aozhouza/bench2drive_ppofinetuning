@@ -1,0 +1,713 @@
+../carla/CarlaUE4.sh -RenderOffScreen -nosound -carla-rpc-port=30150 -graphicsadapter=1 None
+4.26.2-0+++UE4+Release-4.26 522 0
+Disabling core dumps.
+load_world success , attempts=0
+traffic_manager init success, try_time=0
+
+[1m========= Preparing RouteScenario_3712 (repetition 0) =========[0m
+[1m> Loading the world[0m
+[1m> Setting up the agent[0m
+load checkpoint from path: Bench2DriveZoo/ckpts/uniad_base_b2d.pth
+[1m> Running the route[0m
+=== [Agent] -- Wallclock = 2025-12-05 21:16:32.487 -- System time = 0.000 -- Game time = 0.050 -- Ratio = 0.000x
+
+[91mStopping the route, the agent has crashed:
+
+Traceback (most recent call last):
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 188, in _tick_scenario
+    ego_action = self._agent_wrapper()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/agent_wrapper.py", line 147, in __call__
+    return self._agent()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/autonomous_agent.py", line 119, in __call__
+    control = self.run_step(input_data, timestamp)
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/team_code/uniad_b2d_agent.py", line 375, in run_step
+    output_data_batch = self.model(input_data_batch, return_loss=False, rescale=True)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/detectors/uniad_e2e.py", line 87, in forward
+    outputs = self.forward_test(**inputs, rescale=rescale)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/detectors/uniad_e2e.py", line 322, in forward_test
+    result_seg =  self.seg_head.forward_test(bev_embed, gt_lane_labels, gt_lane_masks, img_metas, rescale)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/dense_heads/panseg_head.py", line 1014, in forward_test
+    results = self.get_bboxes(pred_seg_dict['outputs_classes'],
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/utils/fp16_utils.py", line 185, in new_func
+    return old_func(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/dense_heads/panseg_head.py", line 1199, in get_bboxes
+    mask_things, mask_inter_things, query_inter_things = self.things_mask_head(
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/utils/fp16_utils.py", line 185, in new_func
+    return old_func(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/dense_heads/seg_head_plugin/seg_mask_head.py", line 379, in forward
+    query_embed, mask = block(self.with_pos_embed(
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/utils/fp16_utils.py", line 185, in new_func
+    return old_func(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/dense_heads/seg_head_plugin/seg_mask_head.py", line 264, in forward
+    x, mask = self.attn(query, key, value, key_padding_mask, hw_lvl=hw_lvl)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/utils/fp16_utils.py", line 185, in new_func
+    return old_func(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/dense_heads/seg_head_plugin/seg_mask_head.py", line 140, in forward
+    attn = (q @ k.transpose(-2, -1).contiguous()) * self.scale
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 124.00 MiB. GPU 0 has a total capacity of 23.70 GiB of which 363.38 MiB is free. Process 17138 has 8.34 GiB memory in use. Process 120631 has 8.41 GiB memory in use. Including non-PyTorch memory, this process has 6.20 GiB memory in use. Of the allocated memory 4.65 GiB is allocated by PyTorch, and 114.67 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "leaderboard/leaderboard/leaderboard_evaluator.py", line 412, in _load_and_run_scenario
+    self.manager.run_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 161, in run_scenario
+    self._tick_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 196, in _tick_scenario
+    raise AgentError(e)
+leaderboard.autoagents.agent_wrapper.AgentError: CUDA out of memory. Tried to allocate 124.00 MiB. GPU 0 has a total capacity of 23.70 GiB of which 363.38 MiB is free. Process 17138 has 8.34 GiB memory in use. Process 120631 has 8.41 GiB memory in use. Including non-PyTorch memory, this process has 6.20 GiB memory in use. Of the allocated memory 4.65 GiB is allocated by PyTorch, and 114.67 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[0m
+[1m> Stopping the route[0m
+
+[1m========= Results of RouteScenario_3712 (repetition 0) ------ [91mFAILURE[0m [1m=========[0m
+
+╒═══════════════════════╤═════════════════════╕
+│ Start Time            │ 2025-12-05 21:16:32 │
+├───────────────────────┼─────────────────────┤
+│ End Time              │ 2025-12-05 21:16:36 │
+├───────────────────────┼─────────────────────┤
+│ System Time           │ 4.0s                │
+├───────────────────────┼─────────────────────┤
+│ Game Time             │ 0.05s               │
+├───────────────────────┼─────────────────────┤
+│ Ratio (Game / System) │ 0.012               │
+╘═══════════════════════╧═════════════════════╛
+
+╒═══════════════════════╤═════════╤═════════╕
+│ Criterion             │ Result  │ Value   │
+├───────────────────────┼─────────┼─────────┤
+│ RouteCompletionTest   │ [91mFAILURE[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ OutsideRouteLanesTest │ [92mSUCCESS[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ CollisionTest         │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningRedLightTest   │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningStopTest       │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ MinSpeedTest          │ [92mSUCCESS[0m │ 100 %   │
+├───────────────────────┼─────────┼─────────┤
+│ InRouteTest           │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ AgentBlockedTest      │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ Timeout               │ [92mSUCCESS[0m │         │
+╘═══════════════════════╧═════════╧═════════╛
+
+[1m> Registering the route statistics[0m
+False
+
+[1m========= Preparing RouteScenario_3717 (repetition 0) =========[0m
+[1m> Loading the world[0m
+[1m> Setting up the agent[0m
+load checkpoint from path: Bench2DriveZoo/ckpts/uniad_base_b2d.pth
+[1m> Running the route[0m
+=== [Agent] -- Wallclock = 2025-12-05 21:18:05.602 -- System time = 0.000 -- Game time = 0.050 -- Ratio = 0.000x
+
+[91mStopping the route, the agent has crashed:
+
+Traceback (most recent call last):
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 188, in _tick_scenario
+    ego_action = self._agent_wrapper()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/agent_wrapper.py", line 147, in __call__
+    return self._agent()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/autonomous_agent.py", line 119, in __call__
+    control = self.run_step(input_data, timestamp)
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/team_code/uniad_b2d_agent.py", line 375, in run_step
+    output_data_batch = self.model(input_data_batch, return_loss=False, rescale=True)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/detectors/uniad_e2e.py", line 87, in forward
+    outputs = self.forward_test(**inputs, rescale=rescale)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/detectors/uniad_e2e.py", line 322, in forward_test
+    result_seg =  self.seg_head.forward_test(bev_embed, gt_lane_labels, gt_lane_masks, img_metas, rescale)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/dense_heads/panseg_head.py", line 1014, in forward_test
+    results = self.get_bboxes(pred_seg_dict['outputs_classes'],
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/utils/fp16_utils.py", line 185, in new_func
+    return old_func(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/dense_heads/panseg_head.py", line 1199, in get_bboxes
+    mask_things, mask_inter_things, query_inter_things = self.things_mask_head(
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/utils/fp16_utils.py", line 185, in new_func
+    return old_func(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/dense_heads/seg_head_plugin/seg_mask_head.py", line 379, in forward
+    query_embed, mask = block(self.with_pos_embed(
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/utils/fp16_utils.py", line 185, in new_func
+    return old_func(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/dense_heads/seg_head_plugin/seg_mask_head.py", line 264, in forward
+    x, mask = self.attn(query, key, value, key_padding_mask, hw_lvl=hw_lvl)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/utils/fp16_utils.py", line 185, in new_func
+    return old_func(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/dense_heads/seg_head_plugin/seg_mask_head.py", line 140, in forward
+    attn = (q @ k.transpose(-2, -1).contiguous()) * self.scale
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 124.00 MiB. GPU 0 has a total capacity of 23.70 GiB of which 408.50 MiB is free. Process 17138 has 8.34 GiB memory in use. Process 120631 has 8.51 GiB memory in use. Including non-PyTorch memory, this process has 6.06 GiB memory in use. Of the allocated memory 4.53 GiB is allocated by PyTorch, and 97.29 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "leaderboard/leaderboard/leaderboard_evaluator.py", line 412, in _load_and_run_scenario
+    self.manager.run_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 161, in run_scenario
+    self._tick_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 196, in _tick_scenario
+    raise AgentError(e)
+leaderboard.autoagents.agent_wrapper.AgentError: CUDA out of memory. Tried to allocate 124.00 MiB. GPU 0 has a total capacity of 23.70 GiB of which 408.50 MiB is free. Process 17138 has 8.34 GiB memory in use. Process 120631 has 8.51 GiB memory in use. Including non-PyTorch memory, this process has 6.06 GiB memory in use. Of the allocated memory 4.53 GiB is allocated by PyTorch, and 97.29 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[0m
+[1m> Stopping the route[0m
+
+[1m========= Results of RouteScenario_3717 (repetition 0) ------ [91mFAILURE[0m [1m=========[0m
+
+╒═══════════════════════╤═════════════════════╕
+│ Start Time            │ 2025-12-05 21:18:05 │
+├───────────────────────┼─────────────────────┤
+│ End Time              │ 2025-12-05 21:18:08 │
+├───────────────────────┼─────────────────────┤
+│ System Time           │ 3.0s                │
+├───────────────────────┼─────────────────────┤
+│ Game Time             │ 0.05s               │
+├───────────────────────┼─────────────────────┤
+│ Ratio (Game / System) │ 0.017               │
+╘═══════════════════════╧═════════════════════╛
+
+╒═══════════════════════╤═════════╤═════════╕
+│ Criterion             │ Result  │ Value   │
+├───────────────────────┼─────────┼─────────┤
+│ RouteCompletionTest   │ [91mFAILURE[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ OutsideRouteLanesTest │ [92mSUCCESS[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ CollisionTest         │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningRedLightTest   │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningStopTest       │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ MinSpeedTest          │ [92mSUCCESS[0m │ 100 %   │
+├───────────────────────┼─────────┼─────────┤
+│ InRouteTest           │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ AgentBlockedTest      │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ Timeout               │ [92mSUCCESS[0m │         │
+╘═══════════════════════╧═════════╧═════════╛
+
+[1m> Registering the route statistics[0m
+False
+
+[1m========= Preparing RouteScenario_3731 (repetition 0) =========[0m
+[1m> Loading the world[0m
+[1m> Setting up the agent[0m
+load checkpoint from path: Bench2DriveZoo/ckpts/uniad_base_b2d.pth
+[1m> Running the route[0m
+=== [Agent] -- Wallclock = 2025-12-05 21:19:39.229 -- System time = 0.000 -- Game time = 0.050 -- Ratio = 0.000x
+
+[91mStopping the route, the agent has crashed:
+
+Traceback (most recent call last):
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 188, in _tick_scenario
+    ego_action = self._agent_wrapper()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/agent_wrapper.py", line 147, in __call__
+    return self._agent()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/autonomous_agent.py", line 119, in __call__
+    control = self.run_step(input_data, timestamp)
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/team_code/uniad_b2d_agent.py", line 375, in run_step
+    output_data_batch = self.model(input_data_batch, return_loss=False, rescale=True)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/detectors/uniad_e2e.py", line 87, in forward
+    outputs = self.forward_test(**inputs, rescale=rescale)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/detectors/uniad_e2e.py", line 322, in forward_test
+    result_seg =  self.seg_head.forward_test(bev_embed, gt_lane_labels, gt_lane_masks, img_metas, rescale)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/dense_heads/panseg_head.py", line 1013, in forward_test
+    pred_seg_dict = self(pts_feats)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/utils/fp16_utils.py", line 185, in new_func
+    return old_func(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/dense_heads/panseg_head.py", line 226, in forward
+    enc_outputs_class, enc_outputs_coord = self.transformer(
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/utils/fp16_utils.py", line 185, in new_func
+    return old_func(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/dense_heads/seg_head_plugin/seg_deformable_transformer.py", line 319, in forward
+    memory = self.encoder(query=feat_flatten,
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/utils/transformer.py", line 124, in forward
+    x = super(DetrTransformerEncoder, self).forward(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/bricks/transformer.py", line 601, in forward
+    query = layer(
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/bricks/transformer.py", line 522, in forward
+    query = self.ffns[ffn_index](
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/utils/misc.py", line 340, in new_func
+    output = old_func(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/bricks/transformer.py", line 290, in forward
+    return identity + self.dropout_layer(out)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 40.00 MiB. GPU 0 has a total capacity of 23.70 GiB of which 363.81 MiB is free. Process 17138 has 8.34 GiB memory in use. Process 120631 has 9.74 GiB memory in use. Including non-PyTorch memory, this process has 4.88 GiB memory in use. Of the allocated memory 3.31 GiB is allocated by PyTorch, and 135.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "leaderboard/leaderboard/leaderboard_evaluator.py", line 412, in _load_and_run_scenario
+    self.manager.run_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 161, in run_scenario
+    self._tick_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 196, in _tick_scenario
+    raise AgentError(e)
+leaderboard.autoagents.agent_wrapper.AgentError: CUDA out of memory. Tried to allocate 40.00 MiB. GPU 0 has a total capacity of 23.70 GiB of which 363.81 MiB is free. Process 17138 has 8.34 GiB memory in use. Process 120631 has 9.74 GiB memory in use. Including non-PyTorch memory, this process has 4.88 GiB memory in use. Of the allocated memory 3.31 GiB is allocated by PyTorch, and 135.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[0m
+[1m> Stopping the route[0m
+
+[1m========= Results of RouteScenario_3731 (repetition 0) ------ [91mFAILURE[0m [1m=========[0m
+
+╒═══════════════════════╤═════════════════════╕
+│ Start Time            │ 2025-12-05 21:19:39 │
+├───────────────────────┼─────────────────────┤
+│ End Time              │ 2025-12-05 21:19:42 │
+├───────────────────────┼─────────────────────┤
+│ System Time           │ 3.0s                │
+├───────────────────────┼─────────────────────┤
+│ Game Time             │ 0.05s               │
+├───────────────────────┼─────────────────────┤
+│ Ratio (Game / System) │ 0.017               │
+╘═══════════════════════╧═════════════════════╛
+
+╒═══════════════════════╤═════════╤═════════╕
+│ Criterion             │ Result  │ Value   │
+├───────────────────────┼─────────┼─────────┤
+│ RouteCompletionTest   │ [91mFAILURE[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ OutsideRouteLanesTest │ [92mSUCCESS[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ CollisionTest         │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningRedLightTest   │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningStopTest       │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ MinSpeedTest          │ [92mSUCCESS[0m │ 100 %   │
+├───────────────────────┼─────────┼─────────┤
+│ InRouteTest           │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ AgentBlockedTest      │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ Timeout               │ [92mSUCCESS[0m │         │
+╘═══════════════════════╧═════════╧═════════╛
+
+[1m> Registering the route statistics[0m
+False
+
+[1m========= Preparing RouteScenario_3737 (repetition 0) =========[0m
+[1m> Loading the world[0m
+[1m> Setting up the agent[0m
+load checkpoint from path: Bench2DriveZoo/ckpts/uniad_base_b2d.pth
+[1m> Running the route[0m
+=== [Agent] -- Wallclock = 2025-12-05 21:21:11.186 -- System time = 0.000 -- Game time = 0.050 -- Ratio = 0.000x
+
+[91mStopping the route, the agent has crashed:
+
+Traceback (most recent call last):
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 188, in _tick_scenario
+    ego_action = self._agent_wrapper()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/agent_wrapper.py", line 147, in __call__
+    return self._agent()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/autonomous_agent.py", line 119, in __call__
+    control = self.run_step(input_data, timestamp)
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/team_code/uniad_b2d_agent.py", line 375, in run_step
+    output_data_batch = self.model(input_data_batch, return_loss=False, rescale=True)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/detectors/uniad_e2e.py", line 87, in forward
+    outputs = self.forward_test(**inputs, rescale=rescale)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/detectors/uniad_e2e.py", line 322, in forward_test
+    result_seg =  self.seg_head.forward_test(bev_embed, gt_lane_labels, gt_lane_masks, img_metas, rescale)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/dense_heads/panseg_head.py", line 1013, in forward_test
+    pred_seg_dict = self(pts_feats)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/utils/fp16_utils.py", line 185, in new_func
+    return old_func(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/dense_heads/panseg_head.py", line 226, in forward
+    enc_outputs_class, enc_outputs_coord = self.transformer(
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/utils/fp16_utils.py", line 185, in new_func
+    return old_func(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/dense_heads/seg_head_plugin/seg_deformable_transformer.py", line 319, in forward
+    memory = self.encoder(query=feat_flatten,
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/utils/transformer.py", line 124, in forward
+    x = super(DetrTransformerEncoder, self).forward(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/bricks/transformer.py", line 601, in forward
+    query = layer(
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/bricks/transformer.py", line 487, in forward
+    query = self.attentions[attn_index](
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/utils/misc.py", line 340, in new_func
+    output = old_func(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/ops/multi_scale_deform_attn.py", line 323, in forward
+    attention_weights = attention_weights.softmax(-1)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 23.70 GiB of which 366.81 MiB is free. Process 17138 has 8.34 GiB memory in use. Process 120631 has 9.58 GiB memory in use. Including non-PyTorch memory, this process has 5.03 GiB memory in use. Of the allocated memory 3.48 GiB is allocated by PyTorch, and 115.81 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "leaderboard/leaderboard/leaderboard_evaluator.py", line 412, in _load_and_run_scenario
+    self.manager.run_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 161, in run_scenario
+    self._tick_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 196, in _tick_scenario
+    raise AgentError(e)
+leaderboard.autoagents.agent_wrapper.AgentError: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 23.70 GiB of which 366.81 MiB is free. Process 17138 has 8.34 GiB memory in use. Process 120631 has 9.58 GiB memory in use. Including non-PyTorch memory, this process has 5.03 GiB memory in use. Of the allocated memory 3.48 GiB is allocated by PyTorch, and 115.81 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[0m
+[1m> Stopping the route[0m
+
+[1m========= Results of RouteScenario_3737 (repetition 0) ------ [91mFAILURE[0m [1m=========[0m
+
+╒═══════════════════════╤═════════════════════╕
+│ Start Time            │ 2025-12-05 21:21:11 │
+├───────────────────────┼─────────────────────┤
+│ End Time              │ 2025-12-05 21:21:14 │
+├───────────────────────┼─────────────────────┤
+│ System Time           │ 3.0s                │
+├───────────────────────┼─────────────────────┤
+│ Game Time             │ 0.05s               │
+├───────────────────────┼─────────────────────┤
+│ Ratio (Game / System) │ 0.017               │
+╘═══════════════════════╧═════════════════════╛
+
+╒═══════════════════════╤═════════╤═════════╕
+│ Criterion             │ Result  │ Value   │
+├───────────────────────┼─────────┼─────────┤
+│ RouteCompletionTest   │ [91mFAILURE[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ OutsideRouteLanesTest │ [92mSUCCESS[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ CollisionTest         │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningRedLightTest   │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningStopTest       │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ MinSpeedTest          │ [92mSUCCESS[0m │ 100 %   │
+├───────────────────────┼─────────┼─────────┤
+│ InRouteTest           │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ AgentBlockedTest      │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ Timeout               │ [92mSUCCESS[0m │         │
+╘═══════════════════════╧═════════╧═════════╛
+
+[1m> Registering the route statistics[0m
+False
+
+[1m========= Preparing RouteScenario_3749 (repetition 0) =========[0m
+[1m> Loading the world[0m
+[1m> Setting up the agent[0m
+load checkpoint from path: Bench2DriveZoo/ckpts/uniad_base_b2d.pth
+[1m> Running the route[0m
+=== [Agent] -- Wallclock = 2025-12-05 21:22:37.614 -- System time = 0.000 -- Game time = 0.050 -- Ratio = 0.000x
+
+[91mStopping the route, the agent has crashed:
+
+Traceback (most recent call last):
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 188, in _tick_scenario
+    ego_action = self._agent_wrapper()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/agent_wrapper.py", line 147, in __call__
+    return self._agent()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/autonomous_agent.py", line 119, in __call__
+    control = self.run_step(input_data, timestamp)
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/team_code/uniad_b2d_agent.py", line 375, in run_step
+    output_data_batch = self.model(input_data_batch, return_loss=False, rescale=True)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/detectors/uniad_e2e.py", line 87, in forward
+    outputs = self.forward_test(**inputs, rescale=rescale)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/detectors/uniad_e2e.py", line 322, in forward_test
+    result_seg =  self.seg_head.forward_test(bev_embed, gt_lane_labels, gt_lane_masks, img_metas, rescale)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/dense_heads/panseg_head.py", line 1013, in forward_test
+    pred_seg_dict = self(pts_feats)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/utils/fp16_utils.py", line 185, in new_func
+    return old_func(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/dense_heads/panseg_head.py", line 226, in forward
+    enc_outputs_class, enc_outputs_coord = self.transformer(
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/utils/fp16_utils.py", line 185, in new_func
+    return old_func(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/dense_heads/seg_head_plugin/seg_deformable_transformer.py", line 319, in forward
+    memory = self.encoder(query=feat_flatten,
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/utils/transformer.py", line 124, in forward
+    x = super(DetrTransformerEncoder, self).forward(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/bricks/transformer.py", line 601, in forward
+    query = layer(
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/bricks/transformer.py", line 487, in forward
+    query = self.attentions[attn_index](
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/utils/misc.py", line 340, in new_func
+    output = old_func(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/ops/multi_scale_deform_attn.py", line 305, in forward
+    query = query + query_pos
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 40.00 MiB. GPU 0 has a total capacity of 23.70 GiB of which 233.31 MiB is free. Process 17138 has 8.34 GiB memory in use. Process 120631 has 9.83 GiB memory in use. Including non-PyTorch memory, this process has 4.92 GiB memory in use. Of the allocated memory 3.35 GiB is allocated by PyTorch, and 135.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "leaderboard/leaderboard/leaderboard_evaluator.py", line 412, in _load_and_run_scenario
+    self.manager.run_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 161, in run_scenario
+    self._tick_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 196, in _tick_scenario
+    raise AgentError(e)
+leaderboard.autoagents.agent_wrapper.AgentError: CUDA out of memory. Tried to allocate 40.00 MiB. GPU 0 has a total capacity of 23.70 GiB of which 233.31 MiB is free. Process 17138 has 8.34 GiB memory in use. Process 120631 has 9.83 GiB memory in use. Including non-PyTorch memory, this process has 4.92 GiB memory in use. Of the allocated memory 3.35 GiB is allocated by PyTorch, and 135.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[0m
+[1m> Stopping the route[0m
+
+[1m========= Results of RouteScenario_3749 (repetition 0) ------ [91mFAILURE[0m [1m=========[0m
+
+╒═══════════════════════╤═════════════════════╕
+│ Start Time            │ 2025-12-05 21:22:37 │
+├───────────────────────┼─────────────────────┤
+│ End Time              │ 2025-12-05 21:22:40 │
+├───────────────────────┼─────────────────────┤
+│ System Time           │ 3.0s                │
+├───────────────────────┼─────────────────────┤
+│ Game Time             │ 0.05s               │
+├───────────────────────┼─────────────────────┤
+│ Ratio (Game / System) │ 0.017               │
+╘═══════════════════════╧═════════════════════╛
+
+╒═══════════════════════╤═════════╤═════════╕
+│ Criterion             │ Result  │ Value   │
+├───────────────────────┼─────────┼─────────┤
+│ RouteCompletionTest   │ [91mFAILURE[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ OutsideRouteLanesTest │ [92mSUCCESS[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ CollisionTest         │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningRedLightTest   │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningStopTest       │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ MinSpeedTest          │ [92mSUCCESS[0m │ 100 %   │
+├───────────────────────┼─────────┼─────────┤
+│ InRouteTest           │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ AgentBlockedTest      │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ ScenarioTimeoutTest   │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ Timeout               │ [92mSUCCESS[0m │         │
+╘═══════════════════════╧═════════╧═════════╛
+
+[1m> Registering the route statistics[0m
+False
+
+[1m========= Preparing RouteScenario_3785 (repetition 0) =========[0m
+[1m> Loading the world[0m
+[1m> Setting up the agent[0m
+load checkpoint from path: Bench2DriveZoo/ckpts/uniad_base_b2d.pth
+[1m> Running the route[0m
+=== [Agent] -- Wallclock = 2025-12-05 21:24:06.895 -- System time = 0.000 -- Game time = 0.050 -- Ratio = 0.000x
+
+[91mStopping the route, the agent has crashed:
+
+Traceback (most recent call last):
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 188, in _tick_scenario
+    ego_action = self._agent_wrapper()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/agent_wrapper.py", line 147, in __call__
+    return self._agent()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/autoagents/autonomous_agent.py", line 119, in __call__
+    control = self.run_step(input_data, timestamp)
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/team_code/uniad_b2d_agent.py", line 375, in run_step
+    output_data_batch = self.model(input_data_batch, return_loss=False, rescale=True)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/detectors/uniad_e2e.py", line 87, in forward
+    outputs = self.forward_test(**inputs, rescale=rescale)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/detectors/uniad_e2e.py", line 322, in forward_test
+    result_seg =  self.seg_head.forward_test(bev_embed, gt_lane_labels, gt_lane_masks, img_metas, rescale)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/dense_heads/panseg_head.py", line 1013, in forward_test
+    pred_seg_dict = self(pts_feats)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/utils/fp16_utils.py", line 185, in new_func
+    return old_func(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/dense_heads/panseg_head.py", line 226, in forward
+    enc_outputs_class, enc_outputs_coord = self.transformer(
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/utils/fp16_utils.py", line 185, in new_func
+    return old_func(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/dense_heads/seg_head_plugin/seg_deformable_transformer.py", line 319, in forward
+    memory = self.encoder(query=feat_flatten,
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/utils/transformer.py", line 124, in forward
+    x = super(DetrTransformerEncoder, self).forward(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/bricks/transformer.py", line 601, in forward
+    query = layer(
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/models/bricks/transformer.py", line 487, in forward
+    query = self.attentions[attn_index](
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/aozhou/anaconda3/envs/b2d_zoo/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/utils/misc.py", line 340, in new_func
+    output = old_func(*args, **kwargs)
+  File "/home/aozhou/bench2drive/Bench2DriveZoo-uniad-vad/mmcv/ops/multi_scale_deform_attn.py", line 333, in forward
+    + sampling_offsets \
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 40.00 MiB. GPU 0 has a total capacity of 23.70 GiB of which 206.00 MiB is free. Process 17138 has 8.34 GiB memory in use. Process 120631 has 10.13 GiB memory in use. Including non-PyTorch memory, this process has 4.64 GiB memory in use. Of the allocated memory 3.07 GiB is allocated by PyTorch, and 134.17 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "leaderboard/leaderboard/leaderboard_evaluator.py", line 412, in _load_and_run_scenario
+    self.manager.run_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 161, in run_scenario
+    self._tick_scenario()
+  File "/home/aozhou/bench2drive/Bench2Drive-main/leaderboard/leaderboard/scenarios/scenario_manager.py", line 196, in _tick_scenario
+    raise AgentError(e)
+leaderboard.autoagents.agent_wrapper.AgentError: CUDA out of memory. Tried to allocate 40.00 MiB. GPU 0 has a total capacity of 23.70 GiB of which 206.00 MiB is free. Process 17138 has 8.34 GiB memory in use. Process 120631 has 10.13 GiB memory in use. Including non-PyTorch memory, this process has 4.64 GiB memory in use. Of the allocated memory 3.07 GiB is allocated by PyTorch, and 134.17 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[0m
+[1m> Stopping the route[0m
+
+[1m========= Results of RouteScenario_3785 (repetition 0) ------ [91mFAILURE[0m [1m=========[0m
+
+╒═══════════════════════╤═════════════════════╕
+│ Start Time            │ 2025-12-05 21:24:06 │
+├───────────────────────┼─────────────────────┤
+│ End Time              │ 2025-12-05 21:24:08 │
+├───────────────────────┼─────────────────────┤
+│ System Time           │ 2.0s                │
+├───────────────────────┼─────────────────────┤
+│ Game Time             │ 0.05s               │
+├───────────────────────┼─────────────────────┤
+│ Ratio (Game / System) │ 0.025               │
+╘═══════════════════════╧═════════════════════╛
+
+╒═══════════════════════╤═════════╤═════════╕
+│ Criterion             │ Result  │ Value   │
+├───────────────────────┼─────────┼─────────┤
+│ RouteCompletionTest   │ [91mFAILURE[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ OutsideRouteLanesTest │ [92mSUCCESS[0m │ 0 %     │
+├───────────────────────┼─────────┼─────────┤
+│ CollisionTest         │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningRedLightTest   │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ RunningStopTest       │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ MinSpeedTest          │ [92mSUCCESS[0m │ 100 %   │
+├───────────────────────┼─────────┼─────────┤
+│ InRouteTest           │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ AgentBlockedTest      │ [92mSUCCESS[0m │         │
+├───────────────────────┼─────────┼─────────┤
+│ ScenarioTimeoutTest   │ [92mSUCCESS[0m │ 0 times │
+├───────────────────────┼─────────┼─────────┤
+│ Timeout               │ [92mSUCCESS[0m │         │
+╘═══════════════════════╧═════════╧═════════╛
+
+[1m> Registering the route statistics[0m
+False
+
+[1m========= Preparing RouteScenario_3800 (repetition 0) =========[0m
+[1m> Loading the world[0m
+[1m> Setting up the agent[0m
