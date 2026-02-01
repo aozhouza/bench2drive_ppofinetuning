@@ -1,4 +1,4 @@
-<img width="172" height="32" alt="image" src="https://github.com/user-attachments/assets/5011f179-8f38-4f46-ad84-7bf6c87c1e37" />## Install
+## Install
 ### Create a conda environment and install
 ```
 conda create -n b2d_ppo_finetuning python=3.8
