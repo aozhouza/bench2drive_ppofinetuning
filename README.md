@@ -36,5 +36,14 @@ cd .. && bash ImportAssets.sh
 export CARLA_ROOT=YOUR_CARLA_PATH
 echo "$CARLA_ROOT/PythonAPI/carla/dist/carla-0.9.15-py3.7-linux-x86_64.egg" >> YOUR_CONDA_PATH/envs/YOUR_CONDA_ENV_NAME/lib/python3.8/site-packages/carla.pth # python 3.8 also works well, please set YOUR_CONDA_PATH and YOUR_CONDA_ENV_NAME
 ```
+### Closed Loop PPO fine-tuning.
+```
+cd Bench2Drive-main/leaderboard
+mkdir team_code
+ln -s Bench2DriveZoo-uniad-vad/team_code/* ./team_code
+cd ..
+ln -s Bench2DriveZoo-uniad-vad  ./ 
+```
+The core code for closed-loop fine-tuning of PPO is located in `Bench2DriveZoo-uniad-vad/team_code`
 
 
