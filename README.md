@@ -12,3 +12,8 @@ pip install ninja packaging
 cd Bench2DriveZoo-uniad-vad
 pip install -v -e .
 ```
+### Prepare pretrained weights.
+```
+cd Bench2DriveZoo-uniad-vad
+mkdir ckpts
+```
