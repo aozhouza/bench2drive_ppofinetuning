@@ -17,7 +17,11 @@ pip install -v -e .
 cd Bench2DriveZoo-uniad-vad
 mkdir ckpts
 ```
-Download `resnet50-19c8e357.pth` from [Hugging Face](https://huggingface.co/rethinklab/Bench2DriveZoo/blob/main/resnet50-19c8e357.pth)
+Download `resnet50-19c8e357.pth` from [Hugging Face](https://huggingface.co/rethinklab/Bench2DriveZoo/blob/main/resnet50-19c8e357.pth).
 
-Download `r101_dcn_fcos3d_pretrain.pth` from [Hugging Face](https://huggingface.co/rethinklab/Bench2DriveZoo/blob/main/r101_dcn_fcos3d_pretrain.pth)
+Download `r101_dcn_fcos3d_pretrain.pth` from [Hugging Face](https://huggingface.co/rethinklab/Bench2DriveZoo/blob/main/r101_dcn_fcos3d_pretrain.pth).
+
+Download `uniad_base_b2d.pth` from [Hugging Face](https://huggingface.co/rethinklab/Bench2DriveZoo/blob/main/uniad_base_b2d.pth).
+
+Download `vad_b2d_base.pth` from [Hugging Face](https://huggingface.co/rethinklab/Bench2DriveZoo/blob/main/vad_b2d_base.pth).
 
