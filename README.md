@@ -1,4 +1,4 @@
-## Install
+<img width="172" height="32" alt="image" src="https://github.com/user-attachments/assets/5011f179-8f38-4f46-ad84-7bf6c87c1e37" />## Install
 ### Create a conda environment and install
 ```
 conda create -n b2d_ppo_finetuning python=3.8
@@ -50,6 +50,19 @@ PPO fine-tuning of training closed loop.
 cd Bench2Drive-main
 bash leaderboard/scripts/run_evaluation.sh
 ```
-###Metric Calculation
-
+### Metric Calculation
+```
+# Composite Driving Performance Score Calculation
+cd Bench2Drive-main
+python cal_res.py
+# Success Rate Calculation
+cd Bench2Drive-main/tools
+python merge_route_json.py
+# Efficiency and Comfortness Calculation
+python efficiency_smoothness_benchmark.py
+```
+If Carla crashes, run the following command to clear it.
+```
+bash Bench2Drive-main/tools/clean_carla.sh
+```
 
