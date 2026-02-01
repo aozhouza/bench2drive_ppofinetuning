@@ -44,6 +44,12 @@ ln -s Bench2DriveZoo-uniad-vad/team_code/* ./team_code
 cd ..
 ln -s Bench2DriveZoo-uniad-vad  ./ 
 ```
-The core code for closed-loop fine-tuning of PPO is located in `Bench2DriveZoo-uniad-vad/team_code`
+The core code for closed-loop fine-tuning of PPO is located in `Bench2DriveZoo-uniad-vad/team_code`.
+PPO fine-tuning of training closed loop.
+```
+cd Bench2Drive-main
+bash leaderboard/scripts/run_evaluation.sh
+```
+###Metric Calculation
 
 
